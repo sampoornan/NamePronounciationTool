@@ -1,0 +1,39 @@
+<mat-card class="employee">
+  <mat-card-header>
+    <mat-card-title>NAME TRANSLATION TOOL</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <div class='mat-elevation-z2 m-t-16 m-b.16 p-8' style=" padding: 10px;">
+      <div fxLayout="row" fxLayout.lt-md='column' fxLayoutGap="30px">
+        <div fxLayout='column' fxFlex=100>
+          <div fxLayout='row'>
+            <mat-form-field appearance="fill">
+              <mat-label>Enter your name</mat-label>
+              <input matInput [(ngModel)]='nameString' >
+            </mat-form-field>
+          </div>
+          <div fxLayout='row' *ngIf="voiceActiveSectionDisabled; else voicesection;">
+            <button mat-raised-button (click)="standardRecord()">Standard</button>
+            <button mat-raised-button (click)="displayRecordButton()">Please Speak</button>
+          </div>
+          <div fxLayout='row'>
+            <ng-template #voicesection>
+              <button mat-raised-button color='primary' (click)="startPlay()">Start</button>
+              <button mat-raised-button (click)="stopPlay()">Stop</button>
+            </ng-template>
+          </div>
+        </div>
+        <div fxLayout='column' fxFlex=100>
+          <div fxLayout='row'>
+            <mat-form-field>
+              <mat-label>Phonetics</mat-label>
+              <input matInput [(ngModel)]='phonetics' >
+            </mat-form-field>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </mat-card-content>
+
+</mat-card>
